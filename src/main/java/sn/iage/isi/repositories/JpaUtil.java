@@ -10,11 +10,10 @@ public class JpaUtil {
 
     private JpaUtil() {}
 
-    public static EntityManagerFactory getEntityManagerFactory() {
+    public static void getEntityManagerFactory() {
         if (emf == null || !emf.isOpen()) {
             emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
         }
-        return emf;
     }
 
     public static EntityManager getEntityManager() {
@@ -23,7 +22,6 @@ public class JpaUtil {
         }
         return emf.createEntityManager();
     }
-
     public static void close() {
         if (emf != null && emf.isOpen()) {
             emf.close();
